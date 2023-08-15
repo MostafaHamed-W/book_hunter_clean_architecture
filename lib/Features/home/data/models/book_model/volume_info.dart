@@ -15,8 +15,8 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
-  double? averageRating;
-  int? ratingsCount;
+  num? averageRating;
+  num? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -64,20 +64,18 @@ class VolumeInfo {
             .toList(),
         readingModes: json['readingModes'] == null
             ? null
-            : ReadingModes.fromJson(
-                json['readingModes'] as Map<String, dynamic>),
+            : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: json['categories'] as List<String>?,
-        averageRating: (json['averageRating'] as num?)?.toDouble(),
-        ratingsCount: json['ratingsCount'] as int?,
+        averageRating: json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] as num?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
         panelizationSummary: json['panelizationSummary'] == null
             ? null
-            : PanelizationSummary.fromJson(
-                json['panelizationSummary'] as Map<String, dynamic>),
+            : PanelizationSummary.fromJson(json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
             ? null
             : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
@@ -94,8 +92,7 @@ class VolumeInfo {
         'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
-        'industryIdentifiers':
-            industryIdentifiers?.map((e) => e.toJson()).toList(),
+        'industryIdentifiers': industryIdentifiers?.map((e) => e.toJson()).toList(),
         'readingModes': readingModes?.toJson(),
         'pageCount': pageCount,
         'printType': printType,

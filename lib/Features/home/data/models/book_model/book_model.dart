@@ -1,9 +1,11 @@
+import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModel {
+class BookModel extends BookEntity {
   String? kind;
   String? id;
   String? etag;
@@ -22,7 +24,15 @@ class BookModel {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  });
+  }) : super(
+          bookId: id!,
+          image: volumeInfo!.imageLinks?.thumbnail ?? '',
+          title: volumeInfo.title,
+          authorName: volumeInfo.authors?.first ?? 'Unknown Auth or',
+          price: 0,
+          rating: volumeInfo.averageRating ?? 0,
+          readingCount: volumeInfo.ratingsCount ?? 0,
+        );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         kind: json['kind'] as String?,
