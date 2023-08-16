@@ -11,8 +11,7 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>
-    with TickerProviderStateMixin {
+class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStateMixin {
   late AnimationController textAnimationController;
   late Animation<Offset> textSlidingAnimation;
 
@@ -23,18 +22,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
-
     navigateToHome();
   }
 
   void navigateToHome() {
     Future.delayed(const Duration(milliseconds: 1500), () {
-      // Get.to(
-      //   () => const HomeView(),
-      //   transition: Transition.fade,
-      //   duration: kTransitionDuration,
-      // );
-
       GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
     });
   }
@@ -62,8 +54,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     textAnimationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     textSlidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 4), end: Offset.zero)
-            .animate(textAnimationController);
+        Tween<Offset>(begin: const Offset(0, 4), end: Offset.zero).animate(textAnimationController);
     textAnimationController.forward();
 
     logoAnimationController =
