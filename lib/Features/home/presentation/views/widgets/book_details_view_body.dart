@@ -17,15 +17,16 @@ class BookDetailsViewBody extends StatelessWidget {
         const Spacer(flex: 1),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.45,
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+            imgUrl: '',
+          ),
         ),
         const SizedBox(height: 34),
         const Text('The Jungle Book', style: Styles.textStyle30),
         const Spacer(flex: 1),
         Text(
           'Rudyard Kipling',
-          style:
-              Styles.textStyle18.copyWith(color: Colors.white.withOpacity(0.7)),
+          style: Styles.textStyle18.copyWith(color: Colors.white.withOpacity(0.7)),
         ),
         const SizedBox(height: 16),
         const BookRating(

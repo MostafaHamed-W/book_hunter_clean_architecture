@@ -1,3 +1,4 @@
+import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'custom_book_image.dart';
@@ -18,6 +19,7 @@ class SimilarBooksListview extends StatelessWidget {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: CustomBookImage(
+                imgUrl: '',
                 aspectRatio: 70 / 112,
               ),
             );

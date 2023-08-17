@@ -1,13 +1,17 @@
+import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/core/utils/app_router.dart';
 import 'package:book_hunt/core/utils/assets.dart';
 import 'package:book_hunt/core/utils/styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({super.key, this.book});
+
+  final BookEntity? book;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +28,11 @@ class BookListViewItem extends StatelessWidget {
             children: [
               AspectRatio(
                 aspectRatio: 300 / 480,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(AssetsData.bookIconTest),
-                    ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(17),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.fill,
+                    imageUrl: book!.image!,
                   ),
                 ),
               ),
@@ -42,7 +44,7 @@ class BookListViewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
-                        'Harry Potter and the Goblet of Fire',
+                        book!.title!,
                         style: Styles.textStyle20.copyWith(
                           fontFamily: AssetsData.kGspectraFine,
                           fontWeight: FontWeight.normal,
@@ -51,18 +53,17 @@ class BookListViewItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 11),
-                    Text('J.K. Rowling',
-                        style: Styles.textStyle14
-                            .copyWith(color: Colors.white.withOpacity(0.7))),
+                    Text(book!.authorName!,
+                        style: Styles.textStyle14.copyWith(color: Colors.white.withOpacity(0.7))),
                     const SizedBox(height: 5),
-                    const Row(
+                    Row(
                       children: [
-                        Text('19.99 €', style: Styles.textStyle20),
-                        Spacer(
+                        const Text('Free', style: Styles.textStyle20),
+                        const Spacer(
                           flex: 8,
                         ),
-                        BookRating(),
-                        Spacer(flex: 3)
+                        BookRating(book: book!),
+                        const Spacer(flex: 3)
                       ],
                     )
                   ],
