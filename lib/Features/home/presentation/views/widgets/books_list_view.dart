@@ -35,7 +35,7 @@ class _BooksListViewState extends State<BooksListView> {
         BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(pageNumber: nextPage++);
         isLoading = false;
       }
-      print('70% exceded');
+      debugPrint('70% exceded');
     }
   }
 

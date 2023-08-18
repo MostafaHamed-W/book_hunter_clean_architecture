@@ -1,8 +1,6 @@
-import 'package:book_hunt/Features/home/data/models/book_model/book_model.dart';
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/constants.dart';
 import 'package:book_hunt/core/utils/api_service.dart';
-import 'package:hive/hive.dart';
 
 import '../../../../core/utils/functions.dart';
 

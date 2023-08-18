@@ -1,4 +1,3 @@
-import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'custom_book_image.dart';
