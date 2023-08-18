@@ -10,7 +10,8 @@ void saveBooksData(List<BookEntity> books, String boxName) {
 
 List<BookEntity> getBooksList(Map<String, dynamic> data) {
   List<BookEntity> books = [];
-  for (var bookMap in data['items']) {
+  // ?? [] to avoid error if there are no similar books in the list
+  for (var bookMap in data['items'] ?? []) {
     books.add(BookModel.fromJson(bookMap));
   }
   return books;

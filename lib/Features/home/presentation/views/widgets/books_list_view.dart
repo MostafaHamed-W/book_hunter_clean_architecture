@@ -1,7 +1,9 @@
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/Features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
+import 'package:book_hunt/core/utils/app_router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'custom_book_image.dart';
 
@@ -54,10 +56,15 @@ class _BooksListViewState extends State<BooksListView> {
           itemCount: widget.books.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-              child: CustomBookImage(
-                imgUrl: widget.books[index].image!,
+            return GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: widget.books[index]);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                child: CustomBookImage(
+                  imgUrl: widget.books[index].image!,
+                ),
               ),
             );
           }),

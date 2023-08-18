@@ -17,7 +17,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: () {},
-              buttonText: "19.99€",
+              buttonText: "Read",
               backgroundColor: Colors.white,
               textColor: Colors.black,
               borderRadius: const BorderRadius.only(
@@ -31,11 +31,11 @@ class BooksAction extends StatelessWidget {
               onPressed: () {
                 GoRouter.of(context).push(AppRouter.kBookPreviewView);
               },
-              buttonText: 'Free preview',
+              buttonText: 'Play',
               backgroundColor: const Color(0xFFEF8262),
               textColor: Colors.white,
               textStyle:
-                  Styles.textStyle16.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+                  Styles.textStyle20.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(17),
                 bottomRight: Radius.circular(17),

@@ -17,7 +17,7 @@ class FeaturedBooksSliver extends StatelessWidget {
         children: [
           CustomAppBar(),
           FeaturedBooksListViewBlocBuilder(),
-          SizedBox(height: 40),
+          SizedBox(height: 10),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: Text('Best Seller', style: Styles.textStyle18),
