@@ -1,10 +1,12 @@
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/similar_books_list_loading_shimmer.dart';
 import 'package:book_hunt/core/utils/app_router.dart';
 import 'package:book_hunt/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shimmer/shimmer.dart';
 
 import 'custom_book_image.dart';
 
@@ -52,7 +54,9 @@ class SimilarBooksListview extends StatelessWidget {
           } else if (state is SimilarBooksFailure) {
             return Text(state.errMessage);
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const SimilarBooksListLoadingShimmer();
+
+            // const Center(child: CircularProgressIndicator());
           }
         },
       ),
