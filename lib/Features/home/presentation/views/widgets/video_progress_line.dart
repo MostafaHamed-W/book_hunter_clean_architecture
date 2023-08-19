@@ -1,4 +1,4 @@
-import 'package:book_hunt/Features/preview/presentation/views/widgets/progress_painter.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/progress_painter.dart';
 import 'package:flutter/cupertino.dart';
 
 class VideoProgressLine extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:book_hunt/Features/search/presentation/views/widgets/search_view_body.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {

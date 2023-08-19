@@ -1,7 +1,7 @@
 import 'package:book_hunt/Features/home/presentation/views/widgets/book_rating.dart';
-import 'package:book_hunt/Features/preview/presentation/views/widgets/play_button.dart';
-import 'package:book_hunt/Features/preview/presentation/views/widgets/video_progress_line.dart';
-import 'package:book_hunt/Features/preview/presentation/views/widgets/video_time_text.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/play_button.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/video_progress_line.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/video_time_text.dart';
 import 'package:book_hunt/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'custom_book_preview_photo.dart';
