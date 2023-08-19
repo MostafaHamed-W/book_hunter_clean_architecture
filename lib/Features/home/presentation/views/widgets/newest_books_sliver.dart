@@ -2,27 +2,48 @@ import 'package:book_hunt/Features/home/presentation/views/widgets/shimmers/newe
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/functions/pagination_error.dart';
+import '../../../domain/enitities/book_entity.dart';
 import '../../manager/newest_books_cubit/newest_books_cubit.dart';
 import 'book_listview_item.dart';
 
-class NewestBooksSliver extends StatelessWidget {
+class NewestBooksSliver extends StatefulWidget {
   const NewestBooksSliver({
     super.key,
   });
 
   @override
+  State<NewestBooksSliver> createState() => _NewestBooksSliverState();
+}
+
+class _NewestBooksSliverState extends State<NewestBooksSliver> {
+  List<BookEntity> allBooks = [];
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
-      builder: (context, state) {
+    return BlocConsumer<NewestBooksCubit, NewestBooksState>(
+      listener: (context, state) {
         if (state is NewestBooksSuccess) {
+          allBooks.addAll(state.books);
+        }
+        if (state is NewestdBooksPaginationFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            snackBarPaginationError(state.errMessage),
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state is NewestBooksSuccess ||
+            state is NewestBooksPaginationLoading ||
+            state is NewestdBooksPaginationFailure) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return BookListViewItem(
-                  book: state.books[index],
+                  book: allBooks[index],
                 );
               },
-              childCount: state.books.length,
+              childCount: allBooks.length,
             ),
           );
         } else if (state is NewestBooksFailure) {

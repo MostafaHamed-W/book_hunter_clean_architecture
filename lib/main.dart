@@ -23,6 +23,7 @@ void main() async {
   //Open hive box
   await Hive.openBox<BookEntity>(kFeaturebBox);
   await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
 
   Bloc.observer = SimpleBlocObserver();
   // change status bar and navigation bar color to black

@@ -4,12 +4,14 @@ import 'package:book_hunt/core/errors/failure.dart';
 import 'package:book_hunt/core/utils/use_cases.dart';
 import 'package:dartz/dartz.dart';
 
-class FetchNewestBooksUseCase extends UseCase<List<BookEntity>, void> {
+class FetchNewestBooksUseCase extends UseCase<List<BookEntity>, int> {
   final HomeRepo homeRepo;
   FetchNewestBooksUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call([void param]) async {
-    return await homeRepo.fetchNewestBooks();
+  Future<Either<Failure, List<BookEntity>>> call([int param = 0]) async {
+    return await homeRepo.fetchNewestBooks(
+      pageNumber: param,
+    );
   }
 }
