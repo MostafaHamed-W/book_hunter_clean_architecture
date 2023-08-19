@@ -1,6 +1,6 @@
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
-import 'package:book_hunt/Features/home/presentation/views/widgets/similar_books_list_loading_shimmer.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/shimmers/similar_books_list_loading_shimmer.dart';
 import 'package:book_hunt/core/utils/app_router.dart';
 import 'package:book_hunt/core/utils/styles.dart';
 import 'package:flutter/material.dart';
