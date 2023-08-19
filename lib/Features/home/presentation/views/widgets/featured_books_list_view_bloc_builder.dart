@@ -1,10 +1,11 @@
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
+import 'package:book_hunt/Features/home/presentation/views/widgets/shimmers/featured_books_list_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/functions/pagination_error.dart';
 import '../../manager/featured_book_cubit/featured_books_cubit.dart';
 import 'books_list_view.dart';
-import 'featurer_books_loading_indicator.dart';
+import 'featured_books_loading_indicator.dart';
 
 class FeaturedBooksListViewBlocBuilder extends StatefulWidget {
   const FeaturedBooksListViewBlocBuilder({
@@ -40,7 +41,9 @@ class _FeaturedBooksListViewBlocBuilderState extends State<FeaturedBooksListView
           return Text(state.errMessage);
         } else {
           return const Center(
-            child: FeaturedBooksLoadingIndicator(),
+            child: FeaturedBooksListShimmer(),
+            // manual loading indicator by animation like shimmers to reuse
+            // FeaturedBooksLoadingIndicator(),
           );
         }
       },
