@@ -1,3 +1,4 @@
+import 'package:book_hunt/Features/home/presentation/views/widgets/shimmers/newest_books_loading_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +34,7 @@ class NewestBooksSliver extends StatelessWidget {
         } else {
           return const SliverFillRemaining(
             child: Center(
-              child: CircularProgressIndicator(),
+              child: NewestBooksListShimmer(),
             ),
           );
         }
