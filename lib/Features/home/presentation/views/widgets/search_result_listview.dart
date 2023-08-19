@@ -1,16 +1,17 @@
+import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../home/presentation/views/widgets/book_listview_item.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
-
+  const SearchResultListView({super.key, required this.books});
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10,
+        itemCount: books.length,
         itemBuilder: (context, index) {
-          return const BookListViewItem();
+          return BookListViewItem(book: books[index]);
         });
   }
 }
