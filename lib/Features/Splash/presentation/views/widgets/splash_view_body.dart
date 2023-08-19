@@ -1,8 +1,11 @@
 import 'package:book_hunt/Features/splash/presentation/views/widgets/sliding_logo.dart';
 import 'package:book_hunt/Features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:book_hunt/core/utils/app_router.dart';
+import 'package:book_hunt/core/widgets/fading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../../core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -15,9 +18,6 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
   late AnimationController textAnimationController;
   late Animation<Offset> textSlidingAnimation;
 
-  late AnimationController logoAnimationController;
-  late Animation<Offset> logoAnimation;
-
   @override
   void initState() {
     super.initState();
@@ -26,7 +26,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Future.delayed(const Duration(milliseconds: 2000), () {
       GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
     });
   }
@@ -34,19 +34,21 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
   @override
   void dispose() {
     textAnimationController.dispose();
-    logoAnimationController.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        SlidingLogo(logoAnimation: logoAnimation),
-        SlidingText(textSlidingAnimation: textSlidingAnimation),
-      ],
+    return CustomFadingWidget(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset(AssetsData.logo),
+          SlidingText(textSlidingAnimation: textSlidingAnimation),
+        ],
+      ),
     );
   }
 
@@ -56,11 +58,5 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
     textSlidingAnimation =
         Tween<Offset>(begin: const Offset(0, 4), end: Offset.zero).animate(textAnimationController);
     textAnimationController.forward();
-
-    logoAnimationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    logoAnimation = Tween<Offset>(begin: const Offset(0, -2), end: Offset.zero)
-        .animate(logoAnimationController);
-    logoAnimationController.forward();
   }
 }

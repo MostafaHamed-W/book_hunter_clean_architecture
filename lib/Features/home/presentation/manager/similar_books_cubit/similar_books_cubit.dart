@@ -1,8 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:book_hunt/Features/home/domain/enitities/book_entity.dart';
 import 'package:book_hunt/Features/home/domain/use_cases/fetch_similar_books_use_case.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'similar_books_state.dart';
 
 class SimilarBooksCubit extends Cubit<SimilarBooksState> {

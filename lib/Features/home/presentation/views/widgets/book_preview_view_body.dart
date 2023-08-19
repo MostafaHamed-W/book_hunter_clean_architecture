@@ -1,4 +1,3 @@
-import 'package:book_hunt/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:book_hunt/Features/home/presentation/views/widgets/play_button.dart';
 import 'package:book_hunt/Features/home/presentation/views/widgets/video_progress_line.dart';
 import 'package:book_hunt/Features/home/presentation/views/widgets/video_time_text.dart';

@@ -6,8 +6,6 @@ import 'package:book_hunt/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shimmer/shimmer.dart';
-
 import 'custom_book_image.dart';
 
 class SimilarBooksListview extends StatelessWidget {

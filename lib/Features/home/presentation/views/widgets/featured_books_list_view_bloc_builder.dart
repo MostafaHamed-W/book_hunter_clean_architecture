@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/functions/pagination_error.dart';
 import '../../manager/featured_book_cubit/featured_books_cubit.dart';
 import 'books_list_view.dart';
-import 'featured_books_loading_indicator.dart';
 
 class FeaturedBooksListViewBlocBuilder extends StatefulWidget {
   const FeaturedBooksListViewBlocBuilder({

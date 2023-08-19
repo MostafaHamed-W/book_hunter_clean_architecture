@@ -1,9 +1,5 @@
-import 'package:book_hunt/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../manager/featured_book_cubit/featured_books_cubit.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_list_view_bloc_builder.dart';
 
